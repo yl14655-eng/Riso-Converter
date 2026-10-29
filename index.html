@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Riso Image Converter</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
+  <script src="p5.riso.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main>
+    <header>
+      <h1>RISO IMAGE CONVERTER</h1>
+      <p>Convert images into two or three Risograph ink layers.</p>
+    </header>
+
+    <section class="controls">
+
+      <label for="upload">Upload Image</label>
+      <input
+        type="file"
+        id="upload"
+        accept="image/png,image/jpeg,image/webp"
+      >
+
+      <label for="inkCount">Number of Inks</label>
+      <select id="inkCount">
+        <option value="2">2 Colors</option>
+        <option value="3" selected>3 Colors</option>
+      </select>
+
+      <label for="ink1">Ink 1</label>
+      <div class="ink-select">
+        <select id="ink1"></select>
+        <span class="swatch" id="swatch1"></span>
+      </div>
+
+      <label for="ink2">Ink 2</label>
+      <div class="ink-select">
+        <select id="ink2"></select>
+        <span class="swatch" id="swatch2"></span>
+      </div>
+
+      <label for="ink3" id="ink3Label">Ink 3</label>
+      <div class="ink-select" id="ink3Container">
+        <select id="ink3"></select>
+        <span class="swatch" id="swatch3"></span>
+      </div>
+
+      <label for="contrast">Contrast</label>
+      <div class="range-control">
+        <input
+          type="range"
+          id="contrast"
+          min="50"
+          max="200"
+          value="100"
+        >
+        <span id="contrastValue">100%</span>
+      </div>
+
+      <label for="method">Conversion Method</label>
+      <select id="method">
+        <option value="continuous">Continuous Tone</option>
+        <option value="bayer">Bayer Dithering</option>
+        <option value="floydsteinberg">Floyd-Steinberg</option>
+        <option value="atkinson">Atkinson Dithering</option>
+      </select>
+
+      <label for="quality">Color Precision</label>
+      <select id="quality">
+        <option value="0.25">Fast</option>
+        <option value="0.2" selected>Balanced</option>
+        <option value="0.1">High Quality (Slower)</option>
+      </select>
+
+      <div class="buttons">
+        <button id="convert">Convert Image</button>
+        <button id="export" disabled>Export Ink Layers</button>
+      </div>
+
+    </section>
+
+    <section class="preview-section">
+      <h2>Preview</h2>
+      <div class="preview-background">
+        <div id="canvas-container"></div>
+      </div>
+      <p id="status">Upload an image to begin.</p>
+    </section>
+  </main>
+
+  <script src="sketch.js"></script>
+</body>
+</html>

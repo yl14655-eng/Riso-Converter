@@ -1,0 +1,184 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 40px;
+  background: #f4f4f1;
+  color: #222;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+header {
+  margin-bottom: 32px;
+}
+
+h1 {
+  font-size: 32px;
+  letter-spacing: -1px;
+  margin: 0 0 10px;
+}
+
+header p {
+  font-size: 15px;
+  color: #666;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: 170px minmax(0, 1fr);
+  align-items: center;
+  gap: 18px;
+  max-width: 650px;
+  margin-bottom: 40px;
+}
+
+.controls label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.controls input,
+.controls select {
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.controls select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  background: white;
+}
+
+.ink-select {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ink-select select {
+  flex: 1;
+}
+
+.swatch {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+}
+
+.range-control {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.range-control input {
+  flex: 1;
+  accent-color: #222;
+}
+
+.range-control span {
+  min-width: 50px;
+  font-size: 13px;
+}
+
+.buttons {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+button {
+  padding: 13px 20px;
+  background: #222;
+  color: white;
+  border: 1px solid #222;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+button:hover {
+  background: #444;
+}
+
+button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.preview-section {
+  margin-top: 30px;
+}
+
+h2 {
+  font-size: 20px;
+  margin-bottom: 18px;
+}
+
+.preview-background {
+  display: inline-block;
+  max-width: 100%;
+  background-color: #fff;
+  background-image:
+    linear-gradient(45deg, #ddd 25%, transparent 25%),
+    linear-gradient(-45deg, #ddd 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #ddd 75%),
+    linear-gradient(-45deg, transparent 75%, #ddd 75%);
+  background-size: 20px 20px;
+  background-position:
+    0 0,
+    0 10px,
+    10px -10px,
+    -10px 0;
+}
+
+#canvas-container {
+  display: block;
+  max-width: 100%;
+  overflow: auto;
+}
+
+canvas {
+  display: block;
+  max-width: 100%;
+  height: auto !important;
+}
+
+#status {
+  margin-top: 16px;
+  font-size: 14px;
+  color: #666;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 25px;
+  }
+
+  .controls {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+}
